@@ -12,8 +12,10 @@ class DashboardController extends Controller
         $role_id = Auth::user()->role_id;
         if ($role_id == 1) {
             return view('admin.dashboard.index');
-        }elseif ($role_id == 2) {
+        } elseif ($role_id == 2) {
             return view('siswa.dashboard.index');
+        } elseif ($role_id == 3) {
+            return view('kepala_sekolah.dashboard.index');
         }
     }
 }

@@ -1,11 +1,12 @@
-@extends('layouts.admin.master')
+@extends('layouts.master')
 @section('menuTitle')
-    Biaya {{$biaya->nama_biaya}} Tahun Ajaran {{$tahun_ajaran->tahun_ajaran}}
+Biaya {{$biaya->nama_biaya}} Tahun Ajaran {{$tahun_ajaran->tahun_ajaran}}
 @stop
 @section('pageTitle')
 <div class="d-flex justify-content-between">
     <a href="{{url()->previous()}}" class="btn btn-primary">Kembali</a>
-    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalBiaya">Tambah Biaya Untuk Jurusan</button>
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalBiaya">Tambah Biaya Untuk
+        Jurusan</button>
 </div>
 @stop
 @section('content')
@@ -23,25 +24,27 @@
                 <tbody>
                     <form action="{{route('dashboard.biaya.store')}}" method="post" id="form-biaya">
                         @csrf
-                    @forelse ($detail_biayas as $no => $detail_biaya)
-                    @if ($detail_biaya->jurusan_id !== null)
+                        @forelse ($detail_biayas as $no => $detail_biaya)
+                        @if ($detail_biaya->jurusan_id !== null)
                         <tr>
                             <td class="py-3">{{ $no + 1 }}</td>
-                            <td class="py-3"><strong>{{ $detail_biaya->jurusan->nama_jurusan }}</strong></td>    
+                            <td class="py-3"><strong>{{ $detail_biaya->jurusan->nama_jurusan }}</strong></td>
                             <input type="hidden" name="id[]" value="{{$detail_biaya->id}}" id="">
-                            <td class="py-3">Rp. <input type="number" value="{{$detail_biaya->jumlah_biaya}}" name="jumlah_biaya[]"></td>
+                            <td class="py-3">Rp. <input type="number" value="{{$detail_biaya->jumlah_biaya}}"
+                                    name="jumlah_biaya[]"></td>
                         </tr>
-                    @endif
-                    @empty
+                        @endif
+                        @empty
                         <h3>Belum Ada Data Pembiayaan</h3>
-                    @endforelse
-                </form>
+                        @endforelse
+                    </form>
                 </tbody>
             </table>
         </div>
     </div>
     <div class="card-footer">
-    <button type="button" class="btn btn-warning float-right" onclick="formConfirmationId('#form-biaya','Perbarui Biaya UDB?')">Simpan</button>
+        <button type="button" class="btn btn-warning float-right"
+            onclick="formConfirmationId('#form-biaya','Perbarui Biaya UDB?')">Simpan</button>
     </div>
 </div>
 @include('admin.biaya.modal_jurusan')

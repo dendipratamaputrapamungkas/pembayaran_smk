@@ -1,9 +1,9 @@
-@extends('layouts.siswa.master')
+@extends('layouts.master')
 @section('pageTitle')
-    Riwayat Pembayaran
+Riwayat Pembayaran
 @stop
 @section('content')
-   <div class="section mt-2">
+<div class="section mt-2">
     <div class="card mb-3">
         <div class="card-header bg-success">
             <h4>Riwayat Pembayaran</h4>
@@ -21,21 +21,21 @@
                     </thead>
                     <tbody>
                         @forelse ($riwayat_pembayarans as $no => $riwayat_pembayaran)
-                            <tr>
-                                <td>{{$no+1}}</td>
-                                <td>{{$riwayat_pembayaran->no_kwitansi}}</td>
-                                <td>{{$riwayat_pembayaran->biaya->nama_biaya}}</td>
-                                <td>{{$riwayat_pembayaran->created_at->format('d-m-Y')}}</td>
-                                <td>{{$riwayat_pembayaran->jumlah_bayar}}</td>
-                                <td>{{$riwayat_pembayaran->keterangan}}</td>
-                            </tr>
+                        <tr>
+                            <td>{{$no+1}}</td>
+                            <td>{{$riwayat_pembayaran->no_kwitansi}}</td>
+                            <td>{{$riwayat_pembayaran->biaya->nama_biaya}}</td>
+                            <td>{{$riwayat_pembayaran->created_at->format('d-m-Y')}}</td>
+                            <td>{{$riwayat_pembayaran->jumlah_bayar}}</td>
+                            <td>{{$riwayat_pembayaran->keterangan}}</td>
+                        </tr>
                         @empty
-                            <h3>Belum Ada Data Pembayaran</h3>
+                        <h3>Belum Ada Data Pembayaran</h3>
                         @endforelse
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-   </div>
+</div>
 @endsection

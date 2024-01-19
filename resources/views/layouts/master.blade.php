@@ -18,12 +18,23 @@
     <body>
         <div class="wrapper">
             <nav id="sidebar" class="sidebar">
-                @include('layouts.kepala-sekolah.partial.sidebar')
+                @if(Auth::user()->role->nama_role == 'admin')
+                @include('layouts.admin.sidebar')
+                @elseif(Auth::user()->role->nama_role == 'kepala sekolah')
+                @include('layouts.kepala_sekolah.sidebar')
+                @elseif(Auth::user()->role->nama_role == 'user')
+                @include('layouts.siswa.sidebar')
+                @endif
             </nav>
 
             <div class="main">
-                @include('layouts.kepala-sekolah.partial.navbar')
-
+                @if(Auth::user()->role->nama_role == 'admin')
+                @include('layouts.admin.navbar')
+                @elseif(Auth::user()->role->nama_role == 'kepala sekolah')
+                @include('layouts.kepala_sekolah.navbar')
+                @elseif(Auth::user()->role->nama_role == 'user')
+                @include('layouts.siswa.navbar')
+                @endif
                 <main class="content">
                     <div class="container-fluid p-0">
 
@@ -44,8 +55,13 @@
 
                     </div>
                 </main>
-
-                @include('layouts.admin.partial.footer')
+                @if(Auth::user()->role->nama_role == 'admin')
+                @include('layouts.admin.footer')
+                @elseif(Auth::user()->role->nama_role == 'kepala sekolah')
+                @include('layouts.kepala_sekolah.footer')
+                @elseif(Auth::user()->role->nama_role == 'user')
+                @include('layouts.siswa.footer')
+                @endif
             </div>
         </div>
         <script src="{{asset('vendor/jquery/jquery-3.4.1.min.js')}}"></script>

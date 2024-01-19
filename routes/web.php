@@ -50,7 +50,7 @@ Route::middleware('revalidate')->group(function () {
                     Route::get('', 'index')->name('');
                 });
                 //Admin And Kepala Sekolah
-                Route::middleware('role:admin|kepala sekolah')->group(function () {
+                Route::middleware(['role:admin,kepala sekolah'])->group(function () {
                     Route::controller(RekapPembayaranController::class)->group(function () {
                         Route::get('/rekapan_pembayaran', 'index')->name('rekapan.pembayaran.index');
                         Route::get('/rekapan_pembayaran/{id}', 'show')->name('rekapan.pembayaran.show');
