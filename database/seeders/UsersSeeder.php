@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class UsersSeeder extends Seeder
 {
@@ -28,7 +28,6 @@ class UsersSeeder extends Seeder
                 'role_id' => 2
             ]
         ];
-        // DB::table('users')->insert($data);
-
+        DB::table('users')->insert($data);
     }
 }

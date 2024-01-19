@@ -49,26 +49,31 @@ Route::middleware('revalidate')->group(function () {
                 Route::controller(DashboardController::class)->group(function () {
                     Route::get('', 'index')->name('');
                 });
+                //Admin And Kepala Sekolah
+                Route::middleware('role:admin|kepala sekolah')->group(function () {
+                    Route::controller(RekapPembayaranController::class)->group(function () {
+                        Route::get('/rekapan_pembayaran', 'index')->name('rekapan.pembayaran.index');
+                        Route::get('/rekapan_pembayaran/{id}', 'show')->name('rekapan.pembayaran.show');
+                    });
+                });
+
                 Route::middleware('admin')->group(function () {
                     Route::resource('biaya', BiayaController::class)->only('index', 'show', 'store');
-                    Route::resource('ksiswa', KelolaSiswaController::class)->except('create','index');
+                    Route::resource('ksiswa', KelolaSiswaController::class)->except('create', 'index');
                     Route::controller(KelolaSiswaController::class)->group(function () {
                         Route::get('/ksiswa', 'tahunAjaran')->name('ksiswa.tahunAjaran');
                         Route::get('/ksiswa/{tahun_ajaran}/{jurusan}', 'siswa')->name('ksiswa.siswa');
                         Route::post('/ksiswa/import', 'import')->name('ksiswa.import');
                     });
-                    Route::resource('tahunAjaran', TahunAjaranController::class)->only(['index','store','edit','update']);
-                    Route::resource('jurusan', JurusanController::class)->only(['index','store','edit','update', 'destroy']);
+                    Route::resource('tahunAjaran', TahunAjaranController::class)->only(['index', 'store', 'edit', 'update']);
+                    Route::resource('jurusan', JurusanController::class)->only(['index', 'store', 'edit', 'update', 'destroy']);
                     Route::controller(BiayaController::class)->group(function () {
                         Route::get('/biaya/{id_biaya}/{id_tahun_ajaran}', 'biaya')->name('biaya.show.jurusan');
                         Route::post('/biaya/tambah', 'tambah')->name('biaya.tambah');
                         Route::post('/biaya/tambah/{tahunAjaran}', 'tambahTahunAjaran')->name('biaya.tambah.tahunAjaran');
                         Route::post('/biaya/jurusan/tambah', 'jurusanTambah')->name('biaya.jurusan.tambah');
                     });
-                    Route::controller(RekapPembayaranController::class)->group(function () {
-                        Route::get('/rekapan_pembayaran', 'index')->name('rekapan.pembayaran.index');
-                        Route::get('/rekapan_pembayaran/{id}', 'show')->name('rekapan.pembayaran.show');
-                    });
+
 
                     Route::resource('pembayaran', PembayaranController::class)->only('index', 'show', 'store');
                     Route::controller(PembayaranController::class)->group(function () {
@@ -94,4 +99,3 @@ Route::middleware('revalidate')->group(function () {
         });
     });
 });
-
