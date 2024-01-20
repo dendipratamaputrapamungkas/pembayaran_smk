@@ -1,10 +1,4 @@
-<<<<<<< HEAD
 @extends('layouts.master')
-@section('pageTitle')
-Riwayat Pembayaran
-@stop
-=======
-@extends('layouts.siswa.master')
 @section('title', isset($pageTitle) ? $pageTitle : 'Riwayat Pembayaran')
 <!-- App Header -->
     @section('back')
@@ -21,7 +15,6 @@ Riwayat Pembayaran
         </a>
     @stop
 <!-- * App Header -->
->>>>>>> 6f050547a0c0fa83828eb9715faede86631d17e6
 @section('content')
 <div class="section mt-2">
     <div class="card mb-3">
@@ -57,9 +50,5 @@ Riwayat Pembayaran
             </div>
         </div>
     </div>
-<<<<<<< HEAD
 </div>
-=======
-   </div>
->>>>>>> 6f050547a0c0fa83828eb9715faede86631d17e6
 @endsection

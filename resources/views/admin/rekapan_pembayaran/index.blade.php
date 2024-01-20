@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 @extends('layouts.master')
-=======
-@extends('layouts.admin.master')
-@section('title', isset($pageTitle) ? $pageTitle : 'Rekap Pembayaran')
->>>>>>> 6f050547a0c0fa83828eb9715faede86631d17e6
 @section('menuTitle')
 Rekapan Pembayaran
 @stop
@@ -13,35 +8,6 @@ Rekapan Pembayaran
 </div>
 @stop
 @section('content')
-<<<<<<< HEAD
-<div class="row">
-    <div class="col-md-12 col-sm-12">
-        <div class="table-responsive">
-            <table class="table table-hover text-dark" id="dataTable">
-                <thead>
-                    <th>#</th>
-                    <th>Tahun Ajaran</th>
-                    <th>Aksi</th>
-                </thead>
-                <tbody>
-                    @forelse ($tahun_ajarans as $no => $tahunAjaran)
-                    <tr>
-                        <td>{{ $no + 1 }}</td>
-                        <td>{{ $tahunAjaran->tahun_ajaran }}</td>
-                        <td><a href="{{route('dashboard.rekapan.pembayaran.show', $tahunAjaran->id)}}"
-                                class="btn btn-sm btn-info">Lihat</a>
-                        </td>
-                    </tr>
-                    @empty
-                    <h3>Belum Ada Data</h3>
-                    @endforelse
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-<hr />
-=======
     <div class="row">
         <div class="col-md-12 col-sm-12">
             <div class="table-responsive">
@@ -68,5 +34,4 @@ Rekapan Pembayaran
         </div>
     </div>
     <hr />
->>>>>>> 6f050547a0c0fa83828eb9715faede86631d17e6
 @stop

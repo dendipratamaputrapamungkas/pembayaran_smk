@@ -1,10 +1,4 @@
-<<<<<<< HEAD
 @extends('layouts.master')
-@section('pageTitle')
-Profile
-@stop
-=======
-@extends('layouts.siswa.master')
 @section('title', isset($pageTitle) ? $pageTitle : 'Profil')
 <!-- App Header -->
     @section('pageTitle')
@@ -18,7 +12,6 @@ Profile
         </div>
     @endsection
 <!-- App Header -->
->>>>>>> 6f050547a0c0fa83828eb9715faede86631d17e6
 @section('content')
 <div class="section mt-2">
     <div class="card mb-3">

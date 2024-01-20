@@ -39,6 +39,8 @@ class DashboardController extends Controller
 
             // return view('');
             return view('siswa.dashboard.index')->with($data);
+        } elseif ($role_id == 3) {
+            return view('kepala_sekolah.dashboard.index');
         }
     }
 }

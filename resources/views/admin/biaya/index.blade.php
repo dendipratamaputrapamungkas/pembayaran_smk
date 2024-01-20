@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 @extends('layouts.master')
-=======
-@extends('layouts.admin.master')
 @section('title', isset($pageTitle) ? $pageTitle : 'Biaya')
->>>>>>> 6f050547a0c0fa83828eb9715faede86631d17e6
 @section('menuTitle')
 Data Biaya
 @stop

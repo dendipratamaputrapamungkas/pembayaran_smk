@@ -1,4 +1,4 @@
-@extends('layouts.admin.master')
+@extends('layouts.master')
 @section('title', isset($pageTitle) ? $pageTitle : 'Dashboard')
 @section('pageTitle')
 Dashboard

@@ -18,19 +18,19 @@ class UsersSeeder extends Seeder
             [
                 'username' => 'admin',
                 'email' => 'admin@mail.com',
-                'password' => bcrypt('gbghfd65#2w4512345sdghgh^$^'),
+                'password' => bcrypt('12345'),
                 'role_id' => 1
             ],
             [
                 'username' => 'user',
                 'email' => 'user@mail.com',
-                'password' => bcrypt('gbghfd65#2w4512345sdghgh^$^'),
+                'password' => bcrypt('12345'),
                 'role_id' => 2
             ],
             [
                 'username' => 'kepalasekolah',
                 'email' => 'kepalasekolah@mail.com',
-                'password' => bcrypt('gbghfd65#2w4512345sdghgh^$^'),
+                'password' => bcrypt('12345'),
                 'role_id' => 3
             ],
         ];
