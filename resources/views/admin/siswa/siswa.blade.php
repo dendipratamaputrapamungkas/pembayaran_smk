@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 @extends('layouts.master')
+=======
+@extends('layouts.admin.master')
+@section('title', isset($pageTitle) ? $pageTitle : 'Siswa')
+>>>>>>> 6f050547a0c0fa83828eb9715faede86631d17e6
 @section('menuTitle')
 Data Siswa Tahun Ajaran {{$tahunAjaran->tahun_ajaran}} Jurusan {{$jurusan->nama_jurusan}}
 @stop

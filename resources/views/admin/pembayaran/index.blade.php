@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 @extends('layouts.master')
+=======
+@extends('layouts.admin.master')
+@section('title', isset($pageTitle) ? $pageTitle : 'Pembayaran')
+>>>>>>> 6f050547a0c0fa83828eb9715faede86631d17e6
 @section('menuTitle')
 Data Siswa
 @stop
@@ -27,8 +32,12 @@ Daftar Siswa
                 <td>{{$siswa->tahun_ajaran->tahun_ajaran}}</td>
                 <td>{{$siswa->jurusan->nama_jurusan}}</td>
                 </td>
+<<<<<<< HEAD
                 <td class="py-3"><a href="{{route('dashboard.pembayaran.show',$siswa->id)}}"
                         class="badge badge-info">Detail Pembayaran</a></td>
+=======
+                <td class="py-3"><a href="{{route('dashboard.pembayaran.show',$siswa->id)}}" class="badge badge-info">Detail Pembayaran</a></td>
+>>>>>>> 6f050547a0c0fa83828eb9715faede86631d17e6
             </tr>
             @empty
             <h3>Belum Ada Data Siswa</h3>

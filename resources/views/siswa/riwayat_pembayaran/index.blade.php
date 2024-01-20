@@ -1,7 +1,27 @@
+<<<<<<< HEAD
 @extends('layouts.master')
 @section('pageTitle')
 Riwayat Pembayaran
 @stop
+=======
+@extends('layouts.siswa.master')
+@section('title', isset($pageTitle) ? $pageTitle : 'Riwayat Pembayaran')
+<!-- App Header -->
+    @section('back')
+        <a href="javascript:;" class="headerButton goBack">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+        </a>
+    @endsection
+    @section('pageTitle')
+        Riwayat Pembayaran
+    @stop
+    @section('search')
+        <a href="javascript:;" class="headerButton toggle-searchbox">
+            <ion-icon name="search-outline"></ion-icon>
+        </a>
+    @stop
+<!-- * App Header -->
+>>>>>>> 6f050547a0c0fa83828eb9715faede86631d17e6
 @section('content')
 <div class="section mt-2">
     <div class="card mb-3">
@@ -37,5 +57,9 @@ Riwayat Pembayaran
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 </div>
+=======
+   </div>
+>>>>>>> 6f050547a0c0fa83828eb9715faede86631d17e6
 @endsection

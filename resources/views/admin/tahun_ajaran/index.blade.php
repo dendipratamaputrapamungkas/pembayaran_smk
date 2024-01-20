@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 @extends('layouts.master')
+=======
+@extends('layouts.admin.master')
+@section('title', isset($pageTitle) ? $pageTitle : 'Tahun Ajaran')
+>>>>>>> 6f050547a0c0fa83828eb9715faede86631d17e6
 @section('menuTitle')
 Tahun Ajaran
 @stop
@@ -10,6 +15,7 @@ Tahun Ajaran
 </div>
 @stop
 @section('content')
+<<<<<<< HEAD
 <div class="row">
     <div class="col-md-12 col-sm-12">
         <div class="table-responsive">
@@ -39,6 +45,38 @@ Tahun Ajaran
                     @endforelse
                 </tbody>
             </table>
+=======
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class="table-responsive">
+                <table class="table table-hover text-dark" id="dataTable">
+                    <thead>
+                        <th>#</th>
+                        <th>Tahun Ajaran</th>
+                        <th>Aksi</th>
+                    </thead>
+                    <tbody>
+                        @forelse ($tahunAjarans as $no => $tahunAjaran)
+                            <tr>
+                                <td>{{ $no + 1 }}</td>
+                                <td>{{ $tahunAjaran->tahun_ajaran }}</td>
+                                <td>
+
+                                        <button type="button" class="btn btn-info" data-toggle="modal"
+                                            data-target="#modalTahunAjaran"
+                                            onclick="editTahunAjaran('{{ $tahunAjaran->id }}','formTahunAjaran')">
+                                            Edit
+                                        </button>
+
+                                </td>
+                            </tr>
+                        @empty
+                            <h3>Belum Ada Data</h3>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+>>>>>>> 6f050547a0c0fa83828eb9715faede86631d17e6
         </div>
     </div>
 </div>
