@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.siswa.master')
 @section('title', isset($pageTitle) ? $pageTitle : 'Riwayat Pembayaran')
 <!-- App Header -->
     @section('back')
