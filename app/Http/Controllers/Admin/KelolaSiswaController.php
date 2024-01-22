@@ -10,6 +10,8 @@ use App\Models\Jurusan;
 use App\Models\User;
 use App\Imports\ImportSiswa;
 use Excel;
+use Maatwebsite\Excel\Facades\Excel as FacadesExcel;
+use Maatwebsite\Excel\Validators\ValidationException;
 
 class KelolaSiswaController extends Controller
 {
@@ -116,15 +118,17 @@ class KelolaSiswaController extends Controller
     public function import(Request $request)
     {
         try {
-            Excel::import(new ImportSiswa, $request->file('import_siswa'));
+            FacadesExcel::import(new ImportSiswa, $request->file('import_siswa'));
+
             $notification = [
                 'alert-type' => 'success',
                 'message' => 'Import Siswa Berhasil'
             ];
+
             return redirect()->back()->with($notification);
-        } catch (Maatwebsite\Excel\Validators\ValidationException $e) {
-             $failures = $e->failures();
-             return redirect()->back()->withErrors($failures);
+        } catch (ValidationException $e) {
+            $failures = $e->failures();
+            return redirect()->back()->withErrors($failures);
         }
     }
 }
