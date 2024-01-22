@@ -64,6 +64,7 @@ Route::middleware('revalidate')->group(function () {
                         Route::get('/ksiswa', 'tahunAjaran')->name('ksiswa.tahunAjaran');
                         Route::get('/ksiswa/{tahun_ajaran}/{jurusan}', 'siswa')->name('ksiswa.siswa');
                         Route::post('/ksiswa/import', 'import')->name('ksiswa.import');
+                        Route::post('/ksiswa/store', 'store')->name('ksiswa.store');
                     });
                     Route::resource('tahunAjaran', TahunAjaranController::class)->only(['index', 'store', 'edit', 'update']);
                     Route::resource('jurusan', JurusanController::class)->only(['index', 'store', 'edit', 'update', 'destroy']);

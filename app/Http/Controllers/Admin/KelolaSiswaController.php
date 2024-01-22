@@ -29,7 +29,7 @@ class KelolaSiswaController extends Controller
         $data['jurusan'] = Jurusan::where('id', $jurusan)->first();
         return view('admin.siswa.siswa')->with($data);
     }
- 
+
     public function index()
     {
         //
@@ -54,8 +54,10 @@ class KelolaSiswaController extends Controller
             'nisn' => 'required'
         ]);
         try {
-            $id_user = User::where('role_id',2)->latest('id')->first();
+            // $id_user = User::where('role_id',2)->latest('id')->first();
+            $id_user = User::latest('id')->first();
             $id = $id_user->id + 1;
+
             $user = [
                 'id' => $id,
                 'username' => $request->nisn,
@@ -68,7 +70,6 @@ class KelolaSiswaController extends Controller
             $siswa['user_id'] = $id;
             Siswa::create($siswa);
         } catch (\Throwable $th) {
-            // dd($th->getMessage());
             return redirect()->back()->withErrors('Gagal Menambahkan!');
         }
         $notification = [
